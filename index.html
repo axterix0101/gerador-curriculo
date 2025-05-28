@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerador de Currículo</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Gerador de Currículo</h1>
+        <form id="form-curriculo">
+            <input type="text" name="nome" placeholder="Seu nome completo" required><br>
+            <input type="email" name="email" placeholder="Seu e-mail"><br>
+            <input type="text" name="telefone" placeholder="Seu telefone"><br>
+            <textarea name="formacao" placeholder="Formação acadêmica"></textarea><br>
+            <textarea name="experiencias" placeholder="Experiências profissionais"></textarea><br>
+            <button type="submit">Gerar Currículo</button>
+        </form>
+
+        <div id="pix-info" style="display: none;">
+            <p>Envie <strong>R$5</strong> via Pix para: <strong>seupix@email.com</strong></p>
+            <button onclick="liberarDownload()">Já paguei!</button>
+        </div>
+
+        <button id="baixarPDF" style="display: none;">Baixar Currículo</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
