@@ -30,5 +30,5 @@ document.getElementById('baixarPDF').addEventListener('click', () => {
   doc.text(`Experiências:`, 10, 90);
   doc.text(experiencias, 10, 100);
 
-  doc.save(`${nome}-curriculo.pdf`);
+  doc.save('curriculo.pdf'); // <- você pode adicionar isso para baixar o PDF automaticamente
 });
