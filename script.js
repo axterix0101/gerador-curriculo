@@ -5,7 +5,7 @@ document.getElementById('form-curriculo').addEventListener('submit', function (e
 
 document.getElementById('btn-pix').addEventListener('click', () => {
   window.open('https://livepix.gg/axt0011', '_blank');
-  document.getElementById('confirmacao').classList.remove('hidden');
+  document.getElementById('btn-pago').classList.remove('hidden');
 });
 
 document.getElementById('btn-pago').addEventListener('click', () => {
@@ -30,5 +30,5 @@ document.getElementById('baixarPDF').addEventListener('click', () => {
   doc.text(`Experiências:`, 10, 90);
   doc.text(experiencias, 10, 100);
 
-  doc.save('curriculo.pdf'); // <- você pode adicionar isso para baixar o PDF automaticamente
+  doc.save("curriculo.pdf");
 });
