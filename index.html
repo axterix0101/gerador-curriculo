@@ -1,30 +1,37 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Gerador de Currículo</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Gerador de Currículo</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>Gerador de Currículo</h1>
-        <form id="form-curriculo">
-            <input type="text" name="nome" placeholder="Seu nome completo" required><br>
-            <input type="email" name="email" placeholder="Seu e-mail"><br>
-            <input type="text" name="telefone" placeholder="Seu telefone"><br>
-            <textarea name="formacao" placeholder="Formação acadêmica"></textarea><br>
-            <textarea name="experiencias" placeholder="Experiências profissionais"></textarea><br>
-            <button type="submit">Gerar Currículo</button>
-        </form>
+  <div class="container">
+    <h1>Gerador de Currículo</h1>
 
-        <div id="pix-info" style="display: none;">
-            <p>Envie <strong>R$5</strong> via Pix para: <strong>seupix@email.com</strong></p>
-            <button onclick="liberarDownload()">Já paguei!</button>
-        </div>
+    <form id="form-curriculo">
+      <input type="text" name="nome" placeholder="Seu nome completo" required>
+      <input type="email" name="email" placeholder="Seu e-mail" required>
+      <input type="text" name="telefone" placeholder="Seu telefone">
+      <textarea name="formacao" placeholder="Formação acadêmica"></textarea>
+      <textarea name="experiencias" placeholder="Experiências profissionais"></textarea>
+      <button type="submit">Gerar Currículo</button>
+    </form>
 
-        <button id="baixarPDF" style="display: none;">Baixar Currículo</button>
+    <div id="pix-info" class="hidden">
+      <p>Para gerar seu currículo, envie <strong>R$5,00 via Pix</strong> clicando no botão abaixo:</p>
+      <button id="btn-pix">Fazer pagamento via Pix</button>
+
+      <div id="confirmacao" class="hidden">
+        <p>Após o pagamento, clique em “Já paguei!” para liberar o download.</p>
+        <button id="btn-pago">Já paguei!</button>
+      </div>
     </div>
-    <script src="script.js"></script>
+
+    <button id="baixarPDF" class="hidden">Baixar Currículo</button>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
