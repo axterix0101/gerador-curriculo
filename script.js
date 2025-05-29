@@ -1,35 +1,34 @@
-
-const form = document.getElementById("form-curriculo");
-const botaoBaixar = document.getElementById("baixarPDF");
-
-let dadosCurriculo = {};
-
-form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    const formData = new FormData(form);
-    dadosCurriculo = {
-        nome: formData.get("nome"),
-        email: formData.get("email"),
-        telefone: formData.get("telefone"),
-        formacao: formData.get("formacao"),
-        experiencias: formData.get("experiencias"),
-    };
-    document.getElementById("pix-info").style.display = "block";
+document.getElementById('form-curriculo').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('pix-info').classList.remove('hidden');
 });
 
-function liberarDownload() {
-    document.getElementById("baixarPDF").style.display = "inline";
-}
+document.getElementById('btn-pix').addEventListener('click', () => {
+  window.open('https://livepix.gg/axt0011', '_blank');
+  document.getElementById('confirmacao').classList.remove('hidden');
+});
 
-botaoBaixar.addEventListener("click", function () {
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
+document.getElementById('btn-pago').addEventListener('click', () => {
+  document.getElementById('baixarPDF').classList.remove('hidden');
+});
 
-    doc.text(`Currículo de ${dadosCurriculo.nome}`, 10, 10);
-    doc.text(`E-mail: ${dadosCurriculo.email}`, 10, 20);
-    doc.text(`Telefone: ${dadosCurriculo.telefone}`, 10, 30);
-    doc.text(`Formação: ${dadosCurriculo.formacao}`, 10, 40);
-    doc.text(`Experiências: ${dadosCurriculo.experiencias}`, 10, 60);
+document.getElementById('baixarPDF').addEventListener('click', () => {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
 
-    doc.save("curriculo.pdf");
+  const nome = document.querySelector('input[name="nome"]').value;
+  const email = document.querySelector('input[name="email"]').value;
+  const telefone = document.querySelector('input[name="telefone"]').value;
+  const formacao = document.querySelector('textarea[name="formacao"]').value;
+  const experiencias = document.querySelector('textarea[name="experiencias"]').value;
+
+  doc.text(`Nome: ${nome}`, 10, 10);
+  doc.text(`Email: ${email}`, 10, 20);
+  doc.text(`Telefone: ${telefone}`, 10, 30);
+  doc.text(`Formação:`, 10, 40);
+  doc.text(formacao, 10, 50);
+  doc.text(`Experiências:`, 10, 90);
+  doc.text(experiencias, 10, 100);
+
+  doc.save(`${nome}-curriculo.pdf`);
 });
