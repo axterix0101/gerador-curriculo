@@ -1,31 +1,68 @@
-
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f6f8;
+  margin: 0;
+  padding: 0;
 }
+
 .container {
-    background: white;
-    padding: 20px;
-    max-width: 600px;
-    margin: auto;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    border-radius: 10px;
+  max-width: 600px;
+  margin: 50px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
-input, textarea, button {
-    width: 100%;
-    margin-top: 10px;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
 }
-button {
-    background-color: #4CAF50;
-    color: white;
-    cursor: pointer;
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
 }
-button:hover {
-    background-color: #45a049;
+
+form button,
+#btn-pix,
+#btn-pago,
+#baixarPDF {
+  width: 100%;
+  padding: 14px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s ease;
+}
+
+form button:hover,
+#btn-pix:hover,
+#btn-pago:hover,
+#baixarPDF:hover {
+  background-color: #43a047;
+}
+
+p {
+  font-size: 16px;
+  color: #444;
+}
+
+.hidden {
+  display: none;
+}
+
+#confirmacao {
+  margin-top: 15px;
 }
