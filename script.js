@@ -40,7 +40,7 @@ function atualizarPreview() {
   document.getElementById("preview-nome").textContent = nome;
   document.getElementById("preview-contato").textContent = `${email} • ${telefone} • ${cidade}`;
   document.getElementById("preview-objetivo").textContent = objetivo;
-  document.getElementById("preview-resumo").textContent = resumo;
+  document.getElementById("preview-resumo").innerHTML = resumo.replace(/\n/g, "<br>");
 
   preencherLista("preview-experiencias", transformarEmLista(document.getElementById("experiencias").value));
   preencherLista("preview-formacao", transformarEmLista(document.getElementById("formacao").value));
