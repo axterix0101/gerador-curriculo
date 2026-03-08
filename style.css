@@ -183,6 +183,14 @@ button:hover,
   color: #333;
   line-height: 1.6;
   font-size: 15px;
+
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+.curriculo{
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 ul{
