@@ -3,48 +3,124 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Currículo Pronto em PDF - Rápido, Fácil e por Apenas R$5</title>
-  <meta name="description" content="Crie seu currículo profissional em PDF em menos de 1 minuto. Apenas R$5 via Pix. Entrega automática. Ideal para primeiro emprego.">
-  <meta name="keywords" content="currículo pronto, currículo em pdf, currículo profissional, currículo simples, primeiro emprego, jovem aprendiz, gerar currículo, currículo automático">
-  <meta name="author" content="Gerador de Currículo Online">
-  <meta name="google-site-verification" content="P8KGcJ0tybnIh4QRuDZPrhnuI4O4oL6hvPbjhv5b5LA" />
-  <link rel="canonical" href="https://axterix0101.github.io/gerador-curriculo/">
+  <title>Gerador de Currículo Profissional</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
   <link rel="stylesheet" href="style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
-  <div class="container">
-    <h1>Currículo Pronto em PDF para Imprimir</h1>
-    <p>Precisa de um currículo rápido? Com nosso gerador automático, você cria e baixa seu currículo em PDF em menos de 1 minuto, por apenas R$5 via Pix.</p>
 
-    <h2>Vantagens do nosso gerador de currículos</h2>
-    <ul>
-      <li>Pronto para imprimir e entregar</li>
-      <li>Ideal para primeiro emprego, jovem aprendiz ou recolocação</li>
-      <li>Sem precisar instalar nada</li>
-      <li>Entrega automática após o pagamento</li>
-    </ul>
+  <div class="pagina">
+    <div class="container-grid">
 
-    <p><a href="blog.html">Veja dicas de como melhorar seu currículo</a></p>
+      <section class="painel-form">
+        <h1>Gerador de Currículo</h1>
+        <p class="subtitulo">Monte seu currículo em minutos e visualize grátis antes de baixar.</p>
 
-    <h2>Gerador de Currículo</h2>
-    <form id="form-curriculo">
-      <input type="text" name="nome" placeholder="Seu nome completo" required>
-      <input type="email" name="email" placeholder="Seu e-mail" required>
-      <input type="text" name="telefone" placeholder="Seu telefone">
-      <textarea name="formacao" placeholder="Formação acadêmica"></textarea>
-      <textarea name="experiencias" placeholder="Experiências profissionais"></textarea>
-      <button type="submit">Gerar Currículo</button>
-    </form>
+        <form id="form-curriculo">
+          <label for="nome">Nome completo</label>
+          <input type="text" id="nome" name="nome" required placeholder="Digite seu nome completo">
 
-    <div id="pix-info" class="hidden">
-      <p>Para gerar seu currículo, envie <strong>R$5,00 via Pix</strong> clicando no botão abaixo:</p>
-      <button id="btn-pix">Fazer pagamento via Pix</button>
-      <p>Após o pagamento, volte aqui e clique em “Já paguei!”</p>
-      <button id="btn-pago" class="hidden">Já paguei!</button>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="Digite seu melhor email">
+
+          <label for="telefone">Telefone</label>
+          <input type="text" id="telefone" name="telefone" required placeholder="(00) 00000-0000">
+
+          <label for="cidade">Cidade</label>
+          <input type="text" id="cidade" name="cidade" placeholder="Ex: São João del Rei - MG">
+
+          <label for="objetivo">Objetivo profissional</label>
+          <textarea id="objetivo" name="objetivo" placeholder="Ex: Atuar na área administrativa, contribuindo com organização, atendimento e aprendizado contínuo."></textarea>
+
+          <label for="resumo">Resumo profissional</label>
+          <textarea id="resumo" name="resumo" required placeholder="Fale brevemente sobre seu perfil, qualidades e pontos fortes."></textarea>
+
+          <label for="experiencias">Experiências (separadas por vírgula)</label>
+          <textarea id="experiencias" name="experiencias" required placeholder="Ex: Atendimento ao cliente na loja X, Auxílio administrativo no projeto Y"></textarea>
+
+          <label for="formacao">Formação (separada por vírgula)</label>
+          <textarea id="formacao" name="formacao" required placeholder="Ex: Ensino Médio Completo, Técnico em Administração"></textarea>
+
+          <label for="cursos">Cursos e certificados (separados por vírgula)</label>
+          <textarea id="cursos" name="cursos" placeholder="Ex: Excel básico, Informática, Atendimento ao cliente"></textarea>
+
+          <label for="habilidades">Habilidades (separadas por vírgula)</label>
+          <textarea id="habilidades" name="habilidades" required placeholder="Ex: Comunicação, Organização, Pacote Office"></textarea>
+
+          <button type="submit">Gerar preview do currículo</button>
+        </form>
+
+        <div id="acoes-pagamento" class="hidden">
+          <h2>Seu currículo está pronto</h2>
+          <p class="texto-pagamento">
+            Você pode visualizar grátis agora mesmo.
+          </p>
+          <p class="texto-pagamento destaque-pagamento">
+            Para baixar o <strong>PDF profissional sem marca d’água</strong>, faça o pagamento de <strong>R$5</strong>.
+          </p>
+
+          <div class="beneficios">
+            <span>✔ download imediato</span>
+            <span>✔ PDF profissional</span>
+            <span>✔ pronto para enviar</span>
+          </div>
+
+          <a id="link-pix" href="https://livepix.gg/axt0011" target="_blank" class="botao-link">
+            Pagar com Pix
+          </a>
+
+          <button id="btn-liberar" type="button">
+            Já paguei, liberar PDF
+          </button>
+
+          <button id="baixarPDF" class="hidden" type="button">
+            Baixar PDF sem marca d’água — R$5
+          </button>
+        </div>
+      </section>
+
+      <section class="painel-preview">
+        <div id="curriculo-preview" class="curriculo">
+          <div class="marca-dagua">PRÉVIA</div>
+
+          <header class="cv-header">
+            <h1 id="preview-nome">Seu Nome</h1>
+            <p id="preview-contato">seuemail@email.com • (00) 00000-0000 • Sua cidade</p>
+          </header>
+
+          <section class="cv-bloco">
+            <h2>Objetivo profissional</h2>
+            <p id="preview-objetivo">Seu objetivo aparecerá aqui.</p>
+          </section>
+
+          <section class="cv-bloco">
+            <h2>Resumo profissional</h2>
+            <p id="preview-resumo">Seu resumo aparecerá aqui.</p>
+          </section>
+
+          <section class="cv-bloco">
+            <h2>Experiência profissional</h2>
+            <ul id="preview-experiencias"></ul>
+          </section>
+
+          <section class="cv-bloco">
+            <h2>Formação acadêmica</h2>
+            <ul id="preview-formacao"></ul>
+          </section>
+
+          <section class="cv-bloco">
+            <h2>Cursos e certificados</h2>
+            <ul id="preview-cursos"></ul>
+          </section>
+
+          <section class="cv-bloco">
+            <h2>Habilidades</h2>
+            <ul id="preview-habilidades"></ul>
+          </section>
+        </div>
+      </section>
+
     </div>
-
-    <button id="baixarPDF" class="hidden">Baixar Currículo</button>
   </div>
 
   <script src="script.js"></script>
